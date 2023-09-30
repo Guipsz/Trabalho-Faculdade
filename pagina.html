@@ -6,52 +6,74 @@
     <title>Login JS</title>
 </head>
 <body>
-    <form>
+    <form action="">
         <h1>Escolha uma senha</h1>
         <label for="">Senha</label>
-        <input type="text" name= "" placeholder="digite a senha" id="senha1"><br><br>
+        <input type="text" name="" placeholder="digite a senha" id="senha1"><br><br>
         <label for="">Confirmação</label>
         <input type="text" placeholder="digite a senha" id="senha2"><br><br>
-        <input type="submit" >
-        <style>
-            *{
-                box-sizing: border-box;
-            }
-
-            body{
-                width: 100%;
-                height: 100%;           
-            }
-
-            form{
-                width: 300px;
-                margin: 200px auto;
-                text-align: center; 
-            }
-
-            input{
-                    display: block;
-                    margin: 10px auto;
-                    width: 250px;
-                    height: 30px;
-                }
-        </style>
-<p> Guilherme_32689497 <br><br>
-    Julia_34644644
-<p>
+        <input type="button" value="validar" onclick="logar()">
     </form>
-    
-    <script>
+    <div id="escrever"></div>
+    <p> Guilherme_32689497 <br><br>
+        Julia_34644644
+    </p>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;           
+        }
 
-        function logar(){
+        form {
+            width: 300px;
+            margin: 200px auto 0; 
+            text-align: center; 
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            width: 250px;
+            height: 30px;
+        }
+
+        #escrever {
+            width: 200px; 
+            margin: 20px auto 0;
+            text-align: center; 
+        }
+
+        div {
+            border: 1px solid black;
+            width: 300px;
+            padding: 20px;
+            margin: 0 auto;
+        }    
+
+        p {
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+
+    <script>
+        function logar() {
             var senha1 = document.getElementById("senha1").value;
             var senha2 = document.getElementById("senha2").value;
 
-            if(senha1 == "Guilherme_32689497" && senha2 == " Julia_34644644"){
-                alert('Nome dos criadores Ok!')
-            }else{
-                alert('Nome dos criadores incorreto, tente novamente')
-             } 
+            
+            if ((senha1 == "Guilherme_32689497" && senha2 == "Julia_34644644") ||
+                (senha1 == "Julia_34644644" && senha2 == "Guilherme_32689497")) {
+                document.getElementById("escrever").innerHTML = "Nome dos integrantes ok";
+            } else {
+                if (verificarRequisitos(senha1)) {
+                    document.getElementById("escrever").innerHTML = "Senha criada com sucesso!";
+                } else {
+                    document.getElementById("escrever").innerHTML = "Senha inválida, tente novamente!";
+                }
+            }
+        }
+        function verificarRequisitos(senha) {
         }
     </script>
 </body>
